@@ -1,3 +1,5 @@
+package java;
+
 import java.util.Set;
 
 /**
@@ -8,20 +10,20 @@ import java.util.Set;
  * The program operates using a Push-Down-Automaton implementation.
  */
 public class RPNCalculator extends RPNChecker {
-    private static final Set<Character> operations = Set.of('+', '-', '*', '/');
-    static final String INVALID_EXPRESSION = "Invalid expression.";
+    private static final Set<Character> OPERATIONS = Set.of('+', '-', '*', '/');
 
     /**
      * Initialises the stack needed for the automaton and stores the word that will be calculated.
      *
-     * @param word Word that should be checked for validity.
+     * @param word Word that should be calculated.
      */
     public RPNCalculator(String word) {
         super(word);
     }
 
     /**
-     * Starts the calculation.
+     * Makes the calculation.
+     * Prints the result or throws IllegalArgumentException if expression is invalid.
      */
     public void calculate() {
         while (!word.isEmpty()) {
@@ -32,7 +34,7 @@ public class RPNCalculator extends RPNChecker {
                 word = word.substring(1);
             }
 
-            if (operations.contains(current)) {
+            if (OPERATIONS.contains(current)) {
                 if (stack.isEmpty()) throw new IllegalArgumentException(INVALID_EXPRESSION);
                 int second = stack.pop();
                 if (stack.isEmpty()) throw new IllegalArgumentException(INVALID_EXPRESSION);

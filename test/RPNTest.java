@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.RPNCalculator;
+
 public class RPNTest {
     private RPNCalculator calculator;
     private static final String CHECK_SUCCESS = "DDODDOO";
@@ -21,18 +23,21 @@ public class RPNTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> calculator.check());
     }
 
+    //Test a:
     @Test
     void testCalculatePositive() {
         calculator = new RPNCalculator(CALCULATE_SUCCESS);
         Assertions.assertDoesNotThrow(() -> calculator.calculate());
     }
 
+    //Test b:
     @Test
     void testCalculateNegative() {
         calculator = new RPNCalculator(CALCULATE_FAILURE);
         Assertions.assertThrows(IllegalArgumentException.class, () -> calculator.calculate());
     }
 
+    //Test c:
     @Test
     void testCalculateZeroDivision() {
         calculator = new RPNCalculator(CALCULATE_ZERO_DIVISION);

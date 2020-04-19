@@ -1,3 +1,5 @@
+package java;
+
 /**
  * Class to check if a certain sequence of digits and operation symbols is a valid RPN (Reversed Polish Notation) expression.
  * To check this, an implementation of a Keller-Automaton or Push-Down-Automaton was chosen.
@@ -9,9 +11,10 @@
 abstract class RPNChecker {
     protected String word;
     protected IntegerStack stack;
+    protected static final char END = '$';
     private static final char DIGIT = 'D';
     private static final char OPERATION = 'O';
-    protected static final char END = '$';
+    protected static final String INVALID_EXPRESSION = "Invalid expression.";
 
     /**
      * Initialises the stack needed for the automaton and stores the word that will be checked.
@@ -33,6 +36,7 @@ abstract class RPNChecker {
 
     /**
      * Represents state q0 from exercise 1).
+     * Starting state.
      */
     private void digitState() {
         char current = '_';
@@ -50,7 +54,7 @@ abstract class RPNChecker {
         } else if (word.isEmpty() && popped == DIGIT) {
             emptyStackState();
         } else {
-            throw new IllegalArgumentException(RPNCalculator.INVALID_EXPRESSION);
+            throw new IllegalArgumentException(INVALID_EXPRESSION);
         }
     }
 

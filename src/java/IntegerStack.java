@@ -1,10 +1,12 @@
+package java;
+
 /**
  * Cheap stack implementation for integers using an integer (int) array.
  */
 class IntegerStack {
     private int[] stack;
     private int position;
-    private final int EMPTY = '_';
+    private static final int EMPTY = '_';
 
     public IntegerStack(int size) {
         stack = new int[size];
