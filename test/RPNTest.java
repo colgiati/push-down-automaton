@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.RPNCalculator;
+import rpn.RPNCalculator;
 
 public class RPNTest {
     private RPNCalculator calculator;

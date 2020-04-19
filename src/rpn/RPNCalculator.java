@@ -1,4 +1,4 @@
-package java;
+package rpn;
 
 import java.util.Set;
 
@@ -67,6 +67,31 @@ public class RPNCalculator extends RPNChecker {
             default:
                 if (second == 0) throw new ArithmeticException("Can't divide by zero.");
                 return first / second;
+        }
+    }
+
+    public static void main(String[] args) {
+        RPNCalculator rpnCalculator = new RPNCalculator("DDODDOO");
+        rpnCalculator.check();
+        rpnCalculator = new RPNCalculator("DDODDOOO");
+        try {
+            rpnCalculator.check();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        rpnCalculator = new RPNCalculator("34+62+*");
+        rpnCalculator.calculate();
+        rpnCalculator = new RPNCalculator("34+*");
+        try {
+            rpnCalculator.calculate();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        rpnCalculator = new RPNCalculator("30+33-/");
+        try {
+            rpnCalculator.calculate();
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

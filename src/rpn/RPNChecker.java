@@ -1,4 +1,4 @@
-package java;
+package rpn;
 
 /**
  * Class to check if a certain sequence of digits and operation symbols is a valid RPN (Reversed Polish Notation) expression.
@@ -77,7 +77,7 @@ abstract class RPNChecker {
         } else if (word.isEmpty() && popped == DIGIT) {
             emptyStackState();
         } else {
-            throw new IllegalArgumentException(RPNCalculator.INVALID_EXPRESSION);
+            throw new IllegalArgumentException(INVALID_EXPRESSION);
         }
     }
 
@@ -90,7 +90,7 @@ abstract class RPNChecker {
             stack.push(popped);
             acceptingState();
         } else {
-            throw new IllegalArgumentException(RPNCalculator.INVALID_EXPRESSION);
+            throw new IllegalArgumentException(INVALID_EXPRESSION);
         }
     }
 

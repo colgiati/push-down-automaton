@@ -1,4 +1,4 @@
-package java;
+package rpn;
 
 /**
  * Cheap stack implementation for integers using an integer (int) array.
