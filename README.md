@@ -1,5 +1,5 @@
 # push-down-automaton
-Exercise 5b, task 2, THIN ZHAW
+Exercise 5b, task 2, THIN ZHAW, Group 77, olgiacar & schmilu6
 
 The class RPNChecker is built like a Keller automaton. It checks if a sequence of D (digit) and O (operation) is a valid reverse polnish annotation expression.
 
